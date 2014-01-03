@@ -11,7 +11,7 @@ public class App {
         knight.embarkOnQuest();
 
         ApplicationContext ctx1 = new ClassPathXmlApplicationContext("spring-idol.xml");
-        Auditorium auditorium = (Auditorium) ctx1.getBean("auditorium");
+        // Auditorium auditorium = (Auditorium) ctx1.getBean("auditorium");
         Stage stage = (Stage) ctx1.getBean("stage");
         stage.start();
 
