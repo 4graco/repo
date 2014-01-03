@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<aop:aspectj-autoproxy />
+
+	<bean id="auditorium" class="com.example.spring.Auditorium"
+		init-method="turnOnLights" destroy-method="turnOffLights" />
+
+	<bean id="duke" class="com.example.spring.Juggler" />
+	<bean id="duke2" class="com.example.spring.Juggler">
+		<constructor-arg value="15" />
+	</bean>
+
+	<bean id="saxophone" class="com.example.spring.Saxophone" />
+	<bean id="guitar" class="com.example.spring.Guitar" />
+	<bean id="harmonica" class="com.example.spring.Harmonica" />
+
+	<bean id="kenny" class="com.example.spring.Instrumentalist"
+		p:song="Jingle Bells">
+		<property name="instrument">
+			<bean class="com.example.spring.Piano" />
+		</property>
+	</bean>
+
+	<bean id="poem" class="com.example.spring.Poem" />
+	<bean id="poeticDuke" class="com.example.spring.PoeticJuggler">
+		<constructor-arg value="7" />
+		<constructor-arg ref="poem" />
+	</bean>
+
+	<bean id="stage" class="com.example.spring.Stage" factory-method="getInstance" />
+	<bean id="ticket" class="com.example.spring.Ticket" scope="prototype" />
+
+	<bean id="hank" class="com.example.spring.OneManBand">
+		<property name="instruments">
+			<list>
+				<ref bean="saxophone" />
+				<ref bean="guitar" />
+				<ref bean="harmonica" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="hank1" class="com.example.spring.OneManBand1">
+		<property name="nonNullObj">
+			<null />
+		</property>
+		<property name="instruments">
+			<map>
+				<entry key="saxophone" value-ref="saxophone" />
+				<entry key="guitar" value-ref="guitar" />
+				<entry key="harmonica" value-ref="harmonica" />
+			</map>
+		</property>
+		<property name="sounds">
+			<props>
+				<prop key="guitar">strum strum stum</prop>
+				<prop key="saxophone">tum tum tum</prop>
+				<prop key="cymbal">cym cym cym</prop>
+			</props>
+		</property>
+	</bean>
+
+	<util:list id="cities">
+		<bean class="com.example.spring.City" p:name="Chicago" p:state="IL"
+			p:population="2853114" />
+		<bean class="com.example.spring.City" p:name="Atlanta" p:state="GA"
+			p:population="537958" />
+		<bean class="com.example.spring.City" p:name="Dallas" p:state="TX"
+			p:population="1279910" />
+		<bean class="com.example.spring.City" p:name="Houston" p:state="TX"
+			p:population="2242193" />
+		<bean class="com.example.spring.City" p:name="Odessa" p:state="TX"
+			p:population="90943" />
+		<bean class="com.example.spring.City" p:name="ElPaso" p:state="TX"
+			p:population="613190" />
+		<bean class="com.example.spring.City" p:name="Jal" p:state="NM"
+			p:population="1996" />
+		<bean class="com.example.spring.City" p:name="LasCruces" p:state="NM"
+			p:population="91865" />
+	</util:list>
+
+	<bean id="carl" class="com.example.spring.Instrumentalist">
+		<property name="song" value="Jingle Bells" />
+		<property name="instrument" ref="saxophone" /> <!-- "#{kenny.song=='Jingle Bells'?guitar:saxophone}" --><!-- SpEl -->
+		<property name="cityOfBirth"
+			value="#{cities[T(java.lang.Math).random()*cities.size()]}" />
+	</bean>
+
+	<bean id="audience" class="com.example.spring.Audience" />
+	<bean id="magician" class="com.example.spring.Magician" />
+	<bean id="valunteer" class="com.example.spring.Valunteer" />
+
+	<aop:config>
+		<aop:aspect>
+			<aop:declare-parents types-matching="com.example.spring.Performer+"
+				implement-interface="com.example.spring.Contestant" default-impl="com.example.spring.GraciousContestant" />
+		</aop:aspect>
+		<aop:aspect ref="magician">
+			<aop:pointcut id="thinking"
+				expression="execution(* com.example.spring.Thinker.thinkOfSomething(String)) and args(thoughts)" />
+			<aop:before pointcut-ref="thinking" method="interceptThoughts"
+				arg-names="thoughts" />
+		</aop:aspect>
+		<aop:aspect ref="audience">
+			<aop:pointcut id="performance"
+				expression="execution(* com.example.spring.Performer.perform(..))" />
+			<aop:before pointcut-ref="performance" method="takeSeats" />
+			<aop:before pointcut-ref="performance" method="turnOffCellPhones" />
+			<!-- <aop:around pointcut-ref="performance" method="watchPerformance" /> -->
+			<aop:after-returning pointcut-ref="performance"
+				method="applaud" />
+			<aop:after-throwing pointcut-ref="performance"
+				method="demandRefund" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>
