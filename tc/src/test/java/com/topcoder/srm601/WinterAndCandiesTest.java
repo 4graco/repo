@@ -23,18 +23,18 @@ public class WinterAndCandiesTest {
 						{ { 0 }, { 2 } } });
 	}
 
-	int[] data;
 	int expectedResult;
+	int[] types;
 
-	public WinterAndCandiesTest(int expectedResult[], int[] data) {
+	public WinterAndCandiesTest(int expectedResult[], int[] types) {
 		this.expectedResult = expectedResult[0];
-		this.data = data;
+		this.types = types;
 	}
 
 	@Test
 	public void testGetNumber() {
 		WinterAndCandies winterAndCandies = new WinterAndCandies();
-		assertEquals(expectedResult, winterAndCandies.getNumber(data));
+		assertEquals(expectedResult, winterAndCandies.getNumber(types));
 	}
 
 }
