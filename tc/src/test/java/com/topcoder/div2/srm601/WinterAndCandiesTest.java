@@ -1,6 +1,6 @@
 package com.topcoder.div2.srm601;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -9,8 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-
-import com.topcoder.div2.srm601.WinterAndCandies;
 
 @RunWith(Parameterized.class)
 public class WinterAndCandiesTest {
