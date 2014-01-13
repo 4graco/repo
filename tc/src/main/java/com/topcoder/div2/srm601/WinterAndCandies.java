@@ -1,4 +1,4 @@
-package com.topcoder.srm601;
+package com.topcoder.div2.srm601;
 
 public class WinterAndCandies {
 	public int getNumber(int[] types) {
