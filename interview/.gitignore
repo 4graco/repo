@@ -1,6 +1,9 @@
 /**target
 /**.settings
+<<<<<<< HEAD
 /**.gitignore
+=======
+>>>>>>> 1ae1dcbe8107241679dc04768b1c1fd11f12c88f
 /**.classpath
 /**.project
 /**.DS_Store
