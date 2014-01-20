@@ -11,8 +11,4 @@ public class Permutations {
         }
     }
 
-    public <T> void permutate(T[] arr) {
-
-    }
-
 }
