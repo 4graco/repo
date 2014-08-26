@@ -1,8 +1,5 @@
 package com.topcoder.round607;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class PalindromicSubstringsDiv2 {
 
 	String concatStr(String[] S1, String[] S2) {
@@ -16,42 +13,27 @@ public class PalindromicSubstringsDiv2 {
 		return res;
 	}
 
-	boolean isPalindromic(String s, int beg, int end) {
-		boolean res = true;
-		for (int i = 0; i < (end - beg + 1) / 2; i++) {
-			if (s.charAt(beg + i) != s.charAt(end - i)) {
-				res = false;
-				break;
-			}
-		}
-		return res;
-	}
-
 	public int count(String[] S1, String[] S2) {
-
 		String str = concatStr(S1, S2);
-		HashMap<Character, ArrayList<Integer>> letterPosition = new HashMap<>();
-		for (int i = 0; i < str.length(); i++) {
-			if (letterPosition.containsKey(str.charAt(i))) {
-				letterPosition.get(str.charAt(i)).add(i);
-			} else {
-				ArrayList<Integer> newList = new ArrayList<>();
-				newList.add(i);
-				letterPosition.put(str.charAt(i), newList);
-			}
-		}
+		int countStr = str.length();
 
-		int numOfPalStr = str.length();
-		for (ArrayList<Integer> posList : letterPosition.values()) {
-			for (int j = 0; j < posList.size(); j++) {
-				for (int k = j + 1; k < posList.size(); k++) {
-					if (isPalindromic(str, posList.get(j), posList.get(k))) {
-						numOfPalStr++;
-					}
+		for (int i = 1; i < str.length(); i++) {
+			for (int j = 1; i + j < str.length() && i - j >= 0; j++) {
+				if (str.charAt(i + j) == str.charAt(i - j)) {
+					countStr++;
+				} else {
+					break;
+				}
+			}
+			for (int j = 1; i + j - 1 < str.length() & i - j >= 0; j++) {
+				if (str.charAt(i + j - 1) == str.charAt(i - j)) {
+					countStr++;
+				} else {
+					break;
 				}
 			}
 		}
 
-		return numOfPalStr;
+		return countStr;
 	}
 }

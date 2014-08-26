@@ -10,18 +10,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.topcoder.round601.WinterAndMandarins;
-
 @RunWith(Parameterized.class)
 public class WinterAndMandarinsTest {
 
 	@Parameters
 	public static Collection<int[][]> data() {
-		return Arrays.asList(new int[][][] { { { 10 }, { 10, 20, 30 }, { 2 } },
-				{ { 3 }, { 4, 7, 4 }, { 3 } },
-				{ { 2 }, { 4, 1, 2, 3 }, { 3 } },
-				{ { 1 }, { 5, 4, 6, 1, 9, 4, 2, 7, 5, 6 }, { 4 } },
-				{ { 27 }, { 47, 1000000000, 1, 74 }, { 2 } } });
+		return Arrays.asList(new int[][][] { { { 10 }, { 10, 20, 30 }, { 2 } }, { { 3 }, { 4, 7, 4 }, { 3 } }, { { 2 }, { 4, 1, 2, 3 }, { 3 } },
+		        { { 1 }, { 5, 4, 6, 1, 9, 4, 2, 7, 5, 6 }, { 4 } }, { { 27 }, { 47, 1000000000, 1, 74 }, { 2 } } });
 	}
 
 	int expectedResult;
