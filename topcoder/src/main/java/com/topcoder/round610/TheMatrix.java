@@ -51,7 +51,7 @@ public class TheMatrix {
 		return cols;
 	}
 
-	public int MaxArea(String[] board) {
+	public int maxArea(String[] board) {
 		int[][] cols = calculCols(board);
 		int[][] rows = calculRows(board);
 		int max = 0;

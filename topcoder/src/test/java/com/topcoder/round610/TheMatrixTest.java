@@ -9,18 +9,17 @@ public class TheMatrixTest {
 	@Test
 	public void testCount() {
 		TheMatrix a = new TheMatrix();
-		assertEquals(6, a.MaxArea(new String[] { "1101", "1110", "1001", "1111", "0001" }));
-
-		assertEquals(2, a.MaxArea(new String[] { "1", "0" }));
-		assertEquals(1, a.MaxArea(new String[] { "0000" }));
-		assertEquals(2, a.MaxArea(new String[] { "01" }));
-		assertEquals(2, a.MaxArea(new String[] { "001", "000", "100" }));
-		assertEquals(1, a.MaxArea(new String[] { "0" }));
-		assertEquals(6, a.MaxArea(new String[] { "101", "010" }));
-		assertEquals(8, a.MaxArea(new String[] { "101", "011", "101", "010" }));
+		assertEquals(6, a.maxArea(new String[] { "1101", "1110", "1001", "1111", "0001" }));
+		assertEquals(2, a.maxArea(new String[] { "1", "0" }));
+		assertEquals(1, a.maxArea(new String[] { "0000" }));
+		assertEquals(2, a.maxArea(new String[] { "01" }));
+		assertEquals(2, a.maxArea(new String[] { "001", "000", "100" }));
+		assertEquals(1, a.maxArea(new String[] { "0" }));
+		assertEquals(6, a.maxArea(new String[] { "101", "010" }));
+		assertEquals(8, a.maxArea(new String[] { "101", "011", "101", "010" }));
 		assertEquals(
 		        12,
-		        a.MaxArea(new String[] { "11001110011000110001111001001110110011010110001011", "10100100010111111011111001011110101111010011100001",
+		        a.maxArea(new String[] { "11001110011000110001111001001110110011010110001011", "10100100010111111011111001011110101111010011100001",
 		                "11101111001110100110010101101100011100101000010001", "01000010001010101100010011111000100100110111111000",
 		                "10110100000101100000111000100001011101111101010010", "00111010000011100001110110010011010110010011100100",
 		                "01100001111101001101001101100001111000111001101010", "11010000000011011010100010000000111011001001100101",
