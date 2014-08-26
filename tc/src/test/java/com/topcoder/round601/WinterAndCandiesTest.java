@@ -1,4 +1,4 @@
-package com.topcoder.div2.srm601;
+package com.topcoder.round601;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import com.topcoder.round601.WinterAndCandies;
 
 @RunWith(Parameterized.class)
 public class WinterAndCandiesTest {
