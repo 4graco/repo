@@ -34,8 +34,7 @@ public class FoxConnection2 {
 	}
 
 	public int ways(int[] A, int[] B, int k) {
-		// HashMap<Integer, Node> tree = new HashMap();
-		List<Integer>[] arrayCount = new LinkedList[A.length];
+		List<Integer>[] arrayCount = new List[A.length];
 		for (int i = 0; i < A.length; i++) {
 			if (arrayCount[A[i]] == null) {
 				arrayCount[A[i]] = new LinkedList<>();
