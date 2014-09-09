@@ -41,12 +41,12 @@ public class CandyCollection {
 	int solve(int[] Type1, int[] Number1, int[] Type2, int[] Number2) {
 
 		int count = Type1.length;
-		PriorityQueue<ShapeTypeNum> queue = new PriorityQueue(10);
+		PriorityQueue<ShapeTypeNum> queue = new PriorityQueue<ShapeTypeNum>(10);
 		for (int i = 0; i < count; i++) {
 			queue.add(new ShapeTypeNum(i, Type1[i], Number2[i] + 1));
 			queue.add(new ShapeTypeNum(i, Type2[i], Number1[i] + 1));
 		}
-		Map<Integer, Integer> visited = new HashMap();
+		Map<Integer, Integer> visited = new HashMap<Integer, Integer>();
 		int candySum = 0;
 		while (visited.size() < count) {
 			ShapeTypeNum vertex = queue.poll();
