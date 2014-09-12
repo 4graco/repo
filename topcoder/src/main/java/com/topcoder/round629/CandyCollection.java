@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+/*
+ * Does not pass the tests. Should be corrected
+ */
 public class CandyCollection {
 
 	private class ShapeTypeNum implements Comparable<ShapeTypeNum> {
