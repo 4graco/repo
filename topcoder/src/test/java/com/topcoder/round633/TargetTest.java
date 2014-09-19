@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TargetTest {
 
 	@Test
-	public void tesDraw() {
+	public void testDraw() {
 		Target target = new Target();
 		assertTrue(Arrays.equals(new String[] { "#####", "#   #", "# # #", "#   #", "#####" }, target.draw(5)));
 		assertTrue(Arrays.equals(new String[] { "#########", "#       #", "# ##### #", "# #   # #", "# # # # #", "# #   # #", "# ##### #", "#       #", "#########" },
