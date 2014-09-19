@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.topcoder.round631;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-/**
- *
- * @author User1
- */
 public class CatsOnTheLineDiv2Test {
 
 	private final String POSSIBLE = "Possible";
