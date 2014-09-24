@@ -1,5 +1,9 @@
 package com.topcoder.round609;
 
+/*
+ * Single Round Match 609 Round 1 - Division II, Level Three
+ * http://community.topcoder.com/stat?c=problem_statement&pm=12989&rd=15842
+ */
 public class VocaloidsAndSongs {
 
 	static int MODULO = 1000000007;

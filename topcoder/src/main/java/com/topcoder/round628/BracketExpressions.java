@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+/*
+ * Single Round Match 628 Round 1 - Division II, Level Two
+ * http://community.topcoder.com/stat?c=problem_statement&pm=13243&rd=16009
+ */
 public class BracketExpressions {
 
 	private static final Map<Character, Character> pairBrackets = new HashMap<>();

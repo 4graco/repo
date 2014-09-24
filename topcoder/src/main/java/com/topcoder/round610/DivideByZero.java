@@ -3,6 +3,10 @@ package com.topcoder.round610;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/*
+ * Single Round Match 610 Round 1 - Division II, Level One
+ * http://community.topcoder.com/stat?c=problem_statement&pm=12911&rd=15843
+ */
 public class DivideByZero {
 
 	public int CountNumbers(int[] numbers) {

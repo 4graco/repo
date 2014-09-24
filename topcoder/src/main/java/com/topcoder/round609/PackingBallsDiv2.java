@@ -1,5 +1,9 @@
 package com.topcoder.round609;
 
+/*
+ * Single Round Match 609 Round 1 - Division II, Level Two
+ * http://community.topcoder.com/stat?c=problem_statement&pm=12995&rd=15842
+ */
 public class PackingBallsDiv2 {
 
 	public int minPacks(int R, int G, int B) {

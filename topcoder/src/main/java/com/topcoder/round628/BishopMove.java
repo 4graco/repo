@@ -1,5 +1,9 @@
 package com.topcoder.round628;
 
+/*
+ * Single Round Match 628 Round 1 - Division II, Level One
+ * http://community.topcoder.com/stat?c=problem_statement&pm=13280&rd=16009
+ */
 public class BishopMove {
 
 	private boolean isOdd(int n) {

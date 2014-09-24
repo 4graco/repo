@@ -1,5 +1,10 @@
 package com.topcoder.round610;
 
+/*
+ * Single Round Match 610 Round 1 - Division I, Level One
+ * Single Round Match 610 Round 1 - Division II, Level Two
+ * http://community.topcoder.com/stat?c=problem_statement&pm=13035&rd=15843
+ */
 public class TheMatrix {
 
 	int[] calcuLine(boolean[] line) {
