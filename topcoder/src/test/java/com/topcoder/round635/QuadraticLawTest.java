@@ -7,7 +7,7 @@ import org.junit.Test;
 public class QuadraticLawTest {
 
 	@Test
-	public void tesNumberOfSubsequences() {
+	public void testGetTime() {
 		QuadraticLaw quadraticLaw = new QuadraticLaw();
 		assertEquals(0, quadraticLaw.getTime(1));
 		assertEquals(1, quadraticLaw.getTime(2));
