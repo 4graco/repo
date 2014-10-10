@@ -13,7 +13,7 @@ public class LonglongestPathTree {
 
 	static private Map[] cache;
 
-	private void initMatrix(int size) {
+	private void initCache(int size) {
 		cache = new Map[size];
 		for (int i = 0; i < size; i++) {
 			cache[i] = new HashMap();
@@ -51,7 +51,7 @@ public class LonglongestPathTree {
 		return tree;
 	}
 
-	private boolean getDataFromMatrix(int root, int withoutNode, long[] maxP) {
+	private boolean getDataFromCache(int root, int withoutNode, long[] maxP) {
 
 		if ((withoutNode != -1) && (cache[root].get(withoutNode) != null)) {
 			maxP[0] = ((Long[]) (cache[root].get(withoutNode)))[0];
@@ -63,7 +63,7 @@ public class LonglongestPathTree {
 	}
 
 	@SuppressWarnings("unchecked")
-	private void setDataToMatrix(int root, int withoutNode, long[] maxP) {
+	private void setDataToCache(int root, int withoutNode, long[] maxP) {
 
 		if (withoutNode != -1) {
 			Long[] array = new Long[2];
@@ -77,7 +77,7 @@ public class LonglongestPathTree {
 		long maxG = 0;
 		long max1 = 0;
 		long max2 = 0;
-		if (getDataFromMatrix(root, withoutNode, maxP)) {
+		if (getDataFromCache(root, withoutNode, maxP)) {
 			return;
 		}
 
@@ -100,22 +100,22 @@ public class LonglongestPathTree {
 		}
 		maxP[0] = Math.max(maxG, max1 + max2);
 		maxP[1] = max1;
-		setDataToMatrix(root, withoutNode, maxP);
+		setDataToCache(root, withoutNode, maxP);
 
 	}
 
 	private long getMaxPath(Node[] tree, int root, int withoutNode) {
 		long[] maxP = new long[2];
-		if (!getDataFromMatrix(root, withoutNode, maxP)) {
+		if (!getDataFromCache(root, withoutNode, maxP)) {
 			findPath(tree, root, withoutNode, maxP);
-			setDataToMatrix(root, withoutNode, maxP);
+			setDataToCache(root, withoutNode, maxP);
 		}
 		return maxP[0];
 	}
 
 	public long getLength(int[] A, int[] B, int[] L) {
 		Node[] tree = createTree(A, B, L);
-		initMatrix(A.length + 1);
+		initCache(A.length + 1);
 		long max = getMaxPath(tree, 0, -1);
 		for (int i = 0; i < A.length; i++) {
 			long aPath = getMaxPath(tree, A[i], B[i]);
