@@ -20,6 +20,28 @@ public class LonglongestPathTree {
 		}
 	}
 
+	private boolean getDataFromCache(int root, int withoutNode, long[] maxP) {
+
+		if ((withoutNode != -1) && (cache[root].get(withoutNode) != null)) {
+			maxP[0] = ((Long[]) (cache[root].get(withoutNode)))[0];
+			maxP[1] = ((Long[]) (cache[root].get(withoutNode)))[1];
+			return true;
+		}
+
+		return false;
+	}
+
+	@SuppressWarnings("unchecked")
+	private void setDataToCache(int root, int withoutNode, long[] maxP) {
+
+		if (withoutNode != -1) {
+			Long[] array = new Long[2];
+			array[0] = maxP[0];
+			array[1] = maxP[1];
+			cache[root].put(withoutNode, array);
+		}
+	}
+
 	private class Node {
 
 		ArrayList<Integer> links;
@@ -49,28 +71,6 @@ public class LonglongestPathTree {
 			tree[B[i]].addLink(A[i], L[i]);
 		}
 		return tree;
-	}
-
-	private boolean getDataFromCache(int root, int withoutNode, long[] maxP) {
-
-		if ((withoutNode != -1) && (cache[root].get(withoutNode) != null)) {
-			maxP[0] = ((Long[]) (cache[root].get(withoutNode)))[0];
-			maxP[1] = ((Long[]) (cache[root].get(withoutNode)))[1];
-			return true;
-		}
-
-		return false;
-	}
-
-	@SuppressWarnings("unchecked")
-	private void setDataToCache(int root, int withoutNode, long[] maxP) {
-
-		if (withoutNode != -1) {
-			Long[] array = new Long[2];
-			array[0] = maxP[0];
-			array[1] = maxP[1];
-			cache[root].put(withoutNode, array);
-		}
 	}
 
 	private void findPath(Node[] tree, int root, int withoutNode, long[] maxP) {
