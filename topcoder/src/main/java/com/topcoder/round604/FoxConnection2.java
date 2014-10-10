@@ -33,6 +33,7 @@ public class FoxConnection2 {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public int ways(int[] A, int[] B, int k) {
 		List<Integer>[] arrayCount = new List[A.length];
 		for (int i = 0; i < A.length; i++) {
