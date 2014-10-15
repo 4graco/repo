@@ -7,7 +7,7 @@ import org.junit.Test;
 public class IdentifyingWoodTest {
 
 	@Test
-	public void tesCheck() {
+	public void testCheck() {
 		IdentifyingWood identifyingWood = new IdentifyingWood();
 		assertEquals(IdentifyingWood.OK, identifyingWood.check("absdefgh", "asdf"));
 		assertEquals(IdentifyingWood.NOPE, identifyingWood.check("oxoxoxox", "ooxxoo"));
