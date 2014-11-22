@@ -42,8 +42,8 @@ public class WolfInDarkRoom {
 				cell = Math.min(k, M - c - 1);
 				c += cell;
 			}
-			r = Math.min(r, N-1);
-			c = Math.min(c, M-1);
+			r = Math.min(r, N - 1);
+			c = Math.min(c, M - 1);
 
 			if (!isSameBoard(N, M, r, c, oldR, oldC)) {
 				cellCount += cell;
