@@ -1,5 +1,9 @@
 package com.topcoder.rount641;
 
+/*
+ * Single Round Match 641 Round 1 - Division II, Level Two
+ * http://community.topcoder.com/stat?c=problem_statement&pm=13547&rd=16084
+ */
 public class TrianglesContainOriginEasy {
 
 	private int getSign(int x1, int y1, int x2, int y2) {

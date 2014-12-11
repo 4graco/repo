@@ -1,5 +1,9 @@
 package com.topcoder.rount641;
 
+/*
+ * Single Round Match 641 Round 1 - Division II, Level One
+ * http://community.topcoder.com/stat?c=problem_statement&pm=13548&rd=16084
+ */
 public class BuyingTshirts {
 
 	public int meet(int T, int[] Q, int[] P) {
